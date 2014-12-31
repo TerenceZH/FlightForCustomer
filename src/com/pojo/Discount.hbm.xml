@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	<hibernate-mapping package="com.pojo">
+	<class name="Discount" table="DISCOUNT_INFO">
+	 	<id name="id" column="ID" type="long">
+	 		<generator class="sequence">
+	 			<param name="sequence">SE_DISCOUNT</param>
+	 		</generator>
+	 	</id>
+	 	<property name="discount" column="DISCOUNT" type="double"/>
+	 	<many-to-one name="flight" class="Flight" column="FID" update="true"/>
+	</class>
+	
+	
+	</hibernate-mapping>
+ 

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	<hibernate-mapping package="com.pojo">
+	<class name="Flight" table="FLIGHT_INFO" lazy="false">
+	 	<id name="id" column="ID" type="long">
+	 		<generator class="sequence">
+	 			<param name="sequence">SE_FLIGHT</param>
+	 		</generator>
+	 	</id>
+	 	<property name="flightno" column="FLIGHTNO" type="string"/>
+	 	<property name="depart_city" column="DEPART_CITY" type="string"/>
+	 	<property name="arrival_city" column="ARRIVAL_CITY" type="string"/>
+	 	<property name="depart_time" column="DEPART_TIME" type="string"/>
+	 	<property name="arrival_time" column="ARRIVAL_TIME" type="string"/>
+	 	<property name="seat" column="SEAT" type="integer"/>
+	 	<property name="price" column="PRICE" type="double"/>
+	 	<property name="tickets_left" column="TICKETS_LEFT" type="integer"/>
+	 	<property name="seatinfo" column="SEATINFO" type="string"></property>
+		
+		
+	</class>
+	
+	
+	</hibernate-mapping>
+ 

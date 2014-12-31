@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 設置編碼 -->
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<!-- 动态方法调用为false -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<!-- 打开开发模式 -->
+	<constant name="struts.devMode" value="true" />
+
+	<package name="default" namespace="/" extends="json-default">
+
+		<default-action-ref name="index" />
+
+		<global-results>
+			<result name="error">/error.jsp</result>
+		</global-results>
+
+		<action name="Flight_queryFlight2" method = "queryFlight2"  class = "FlightAction" >
+			<result name="FlightqueryFlight2Success">/WEB-INF/Flight/Flight_queryFlight_success.jsp</result>
+		</action>
+		<!-- 占位符形式配置,这种方式可以大大减少配置量 -->
+		<action name="*_*" method="{2}" class="{1}Action">
+			<result name="AccountforwardLoginSuccess">/WEB-INF/Account/Account_forwardLogin_success.jsp</result>
+			<result name="OrderdelOrderSuccess">/WEB-INF/Order/Order_queryOrder_success.jsp</result>
+			<result name="{1}{2}Success">/WEB-INF/{1}/{1}_{2}_success.jsp</result>
+			
+			<!-- <result name="account" type="chain">
+			</result> -->
+		</action>
+
+		<!-- <action name="UserAction" method="register" class="UserAction"> <result 
+			name="success">/WEB-INF/user/User_register_success.jsp</result> </action> -->
+
+        <!-- Struts2-对ajax的支持 -->
+		<action name="AjaxAction" class="AjaxAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<!-- Struts2-json配置 -->
+		<action name="AjaxJsonAction" class="AjaxJsonAction">
+			<result type="json">
+				<param name="includeProperties">*</param>
+			</result>
+		</action>
+		<action name="authImg" class="com.action.AuthImgAction">
+			<result type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+	</package>
+	<!-- Add packages here -->
+
+
+
+</struts>

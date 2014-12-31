@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	<hibernate-mapping package="com.pojo">
+	<class name="Order" table="ORDER_INFO" >
+	 	<id name="id" column="ID" type="long">
+	 		<generator class="sequence">
+	 			<param name="sequence">SE_ORDER</param>
+	 		</generator>
+	 	</id>
+	 	<property name="issent" column="ISSENT" type="integer"/>
+	 	<property name="seatno" column="SEATNO" type="integer"/>
+	 	<property name="time" column="TIME" type="string"></property>
+        <many-to-one name="flight" column="FID"/>
+        <many-to-one name="user" column="USERID"/>
+
+	</class>
+	
+	
+	</hibernate-mapping>
+ 
